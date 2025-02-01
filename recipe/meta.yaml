@@ -1,18 +1,18 @@
 {% set name = "wagtail-trash" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wagtail-trash-{{ version }}.tar.gz
-  sha256: 913a61d2020208180d8bbb85b112fd29bd61c3cad98072cafdd77ee39e852a98
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 2c0f4a5da69e6bf71e1d1ef9b384a58c087d37866cf7646d1b1a35547e46f5ae
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,8 +21,10 @@ requirements:
     - pip
     - setuptools
   run:
+    - django
+    - django-treebeard
     - python >={{ python_min }}
-    - wagtail >=4.1
+    - wagtail >=5.2
     - wagtail-modeladmin
 
 test:
