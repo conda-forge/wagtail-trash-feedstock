@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
   name: wagtail-trash
-  version: 3.2.0
+  version: "3.2.0"
 
 package:
   name: ${{ name|lower }}
@@ -26,7 +27,7 @@ requirements:
   run:
     - django
     - django-treebeard
-    - python >=${{ python_min }}
+    - python >=${{ python_min }},<4.0
     - wagtail >=6.3
     - wagtail-modeladmin
 
@@ -39,9 +40,9 @@ tests:
       run:
         - pip
         - python ${{ python_min }}.*
-    script:
-      - pip check
 
+    python:
+      pip_check: true
 about:
   summary: Make deleted pages only temporarily deleted.
   license: MIT
