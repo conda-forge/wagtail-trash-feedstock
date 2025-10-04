@@ -37,6 +37,7 @@ tests:
         - wagtail_trash
       pip_check: true
       python_version: ${{ python_min }}.*
+
 about:
   summary: Make deleted pages only temporarily deleted.
   license: MIT
