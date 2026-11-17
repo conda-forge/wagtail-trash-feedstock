@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: wagtail-trash
-  version: "3.2.0"
+  version: 3.3.0
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: 3644aa27ba905690d63972a6c7ddee2e363d535fdb723b6ca497918d68c9e733
+  sha256: aa2b74fd58b9b002304d4799bac3d03306c9dcc59360c7367f28bc021957c9d2
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -25,12 +25,9 @@ requirements:
     - pip
     - setuptools
   run:
-    - django
-    - django-treebeard
     - python >=${{ python_min }},<4.0
-    - wagtail >=6.3
-    - wagtail-modeladmin
-
+    - wagtail >=7.4
+    - wagtail-modeladmin >=2.5
 tests:
   - python:
       imports:
