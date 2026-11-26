@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: wagtail-trash
-  version: 3.3.0
+  version: "3.3.1"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: aa2b74fd58b9b002304d4799bac3d03306c9dcc59360c7367f28bc021957c9d2
+  sha256: 6d482ab645a765e16e9e904ac361cf86d39ae9e509090d61494fd3f7c3930405
 
 build:
   number: 0
